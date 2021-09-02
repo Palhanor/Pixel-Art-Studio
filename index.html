@@ -1,11 +1,8 @@
 <!-- Inspiration: https://www.pixilart.com/draw -->
 
-<!-- Paint: <i class="fas fa-pencil-alt"></i> -->
-<!-- Colors: <i class="fas fa-palette"></i> -->
-<!-- Eraser: <i class="fas fa-eraser"></i> -->
 <!-- Move: <i class="fas fa-arrows-alt"></i> -->
 <!-- Text: <i class="fas fa-font"></i> -->
-<!-- Zoom: <i class="fas fa-search-plus"></i> && <i class="fas fa-search-minus"></i>  -->
+<!-- Zoom:  && <i class="fas fa-search-minus"></i>  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +16,23 @@
 <body>
 
     <div id="controls">
-        <label for="pincelColor">Select a color: </label>
-        <input type="color" id="pincelColor" name="pincelColor"><br><br>
+        <label for="pencilColor">Select a color: </label>
+        <input type="color" id="pencilColor" name="pencilColor"><br><br>
+        <label for="pencil">Pencil: </label>
+        <i class="fas fa-pencil-alt" id="pencil"></i></i><br><br>
         <label for="eraser">Eraser: </label>
-        <div id="eraser"></div><br><br>
+        <i class="fas fa-eraser" id="eraser"></i><br><br>
+        <!-- <label for="zoom">Zoom: </label>
+        <i class="fas fa-search-plus" id="zoom"></i><br><br> -->
+        <label for="resizePixel">Pixel size</label>
+        <input type="number" id="resizePixel" name="resizePixel" value="20" min="10" max="40" step="10"><br>
+        <button id="submitPixelSize">Submit</button><br><br>
+        <!-- <button id="saveImage">Save</button> -->
     </div>
 
     <canvas width="500" height="500"></canvas>
 
+    <script src="https://kit.fontawesome.com/e47ec628f8.js" crossorigin="anonymous"></script>
     <script src="paint.js"></script>
 
 </body>

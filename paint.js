@@ -13,10 +13,21 @@ There's a bug when onmouseup outside of canvas
 
     var screen = document.querySelector("canvas");
     var context = screen.getContext("2d");
-    var color = document.querySelector("#pincelColor");
+    var color = document.querySelector("#pencilColor");
+    var pencil = document.querySelector("#pencil");
     var eraserTool = document.querySelector("#eraser");
+    //var zoomTool = document.querySelector("#zoom");
+    //var save = document.querySelector("#saveImage");
+    var resizePixel = document.querySelector("#resizePixel");
+    var submitPixelSize = document.querySelector("#submitPixelSize");
 
+    var pencilIcon = document.querySelector(".fa-pencil-alt");
+    pencilIcon.style.color = "red";
+    var eraserIcon = document.querySelector(".fa-eraser");
+    
     var pixelSize = 20;
+    // var gridSize = 20; - Change the grid and pixel size independently
+    // var screenSize; - Change the size of canvas considering the pixelSize
 
     var xPosition;
     var yPosition;
@@ -29,16 +40,23 @@ There's a bug when onmouseup outside of canvas
     var canPaint = false;
 
     var eraserOn = false;
+    var pencilOn = true;
 
     // Creates the grid system
     function generateGrid() {
+        context.strokeStyle = "#ececec";
         for(let x = 0; x < 500; x = x + pixelSize) {
             for (let y = 0; y < 500; y = y + pixelSize) {
-                context.strokeStyle = "#ececec";
                 context.strokeRect(x, y, pixelSize, pixelSize);
             }
         }
     }
+
+    function clearGrid() {
+        // Clear the trevious grid and screen
+        context.fillStyle = "white";
+        context.fillRect(0, 0, 500, 500);
+            }
 
     // Creates the pixel
     function paint(e) {
@@ -79,16 +97,28 @@ There's a bug when onmouseup outside of canvas
     }
 
     // Activates or deactivate the eraser
-    function eraserControl() {
+    function pencilControl() {
+        eraserIcon.style.color = "black";
+        pencilIcon.style.color = "red";
+        pencilOn = !pencilOn;
         eraserOn = !eraserOn;
-        console.log(eraserOn);
+        
     }
 
-    // Deactivates the eraser to let the user draw again
-    function returnsPainting() {
-        if (eraserOn) {
-            eraserOn = !eraserOn;
-        }
+    function eraserControl() {
+        pencilIcon.style.color = "black";
+        eraserIcon.style.color = "red";
+        eraserOn = !eraserOn;
+    }
+
+    function saveImage() {
+        // Create a function that allows user copu the image from canvas
+    }
+
+    function changePixelSize() {
+        clearGrid();
+        pixelSize = parseInt(resizePixel.value);
+        generateGrid();
     }
 
     // Sets the grid system
@@ -105,6 +135,9 @@ There's a bug when onmouseup outside of canvas
 
     // Controls the usage of eraser
     eraserTool.onclick = eraserControl;
+    pencil.onclick = pencilControl;
 
-    // Deactivates eraser and let the user paint again
-    color.onfocus = returnsPainting;
+    // Copy image from clipboard
+    //save.onclick = saveImage;
+
+    submitPixelSize.onclick = changePixelSize;
