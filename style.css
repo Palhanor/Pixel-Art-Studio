@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#controls {
+    margin: 30px 30px;
+}
+#eraser {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 2px;
+}
+canvas {
+    border: 2px solid darkgray;
+    display: block;
+    margin: -105px auto;
+}
