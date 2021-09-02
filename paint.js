@@ -24,6 +24,20 @@ There's a bug when onmouseup outside of canvas
     var pencilIcon = document.querySelector(".fa-pencil-alt");
     pencilIcon.style.color = "red";
     var eraserIcon = document.querySelector(".fa-eraser");
+
+    // Controls the position and the color of each pixel
+    /* 
+    Have to set a function creating a position to every empty pixel from x = 0 to x = 480 and y = 0 to y = 480
+    arrPositionX and arrPositionY has to call the function each one
+    And the arrPositionColor has to set "" value in each position
+
+    So the paint() function has to change the value in the arrPositionsColor putting the color used by user in the position x and y captured by event
+    
+    This array will be used to render the image in a full white background, or in the move tool and so on...
+    */
+    var arrPositionsX = [];
+    var arrPositionsY = [];
+    var arrPositionsColor = [];
     
     var pixelSize = 20;
     // var gridSize = 20; - Change the grid and pixel size independently
