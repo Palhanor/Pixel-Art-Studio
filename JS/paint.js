@@ -1,17 +1,16 @@
 /*
 
-Let user set the pixel size - control the pixelSize
-Let user set the screen size
-Crate an eraser tool and avoid eraser erases the grid (paint white and create stroke)
-Create an color pallet
-Make an beautiful UI
-Remove the grid after the drawing has ends
-Let user download or save the draw
-There's a bug when onmouseup outside of canvas
+**************** DEVELOP **************
+Bug - There's a bug when onmouseup outside of canvas
+Feature - Let user set the screen size
+Feature - Create an color pallet
+Feature - Remove the grid after the drawing has ends
+Feature - Let user download or save the draw (right button and save)
+Design - Make an beautiful UI
 
 */
 
-    var screen = document.querySelector("canvas");
+    var screen = document.querySelector("#screen");
     var context = screen.getContext("2d");
     var color = document.querySelector("#pencilColor");
     var pencil = document.querySelector("#pencil");
@@ -22,19 +21,17 @@ There's a bug when onmouseup outside of canvas
     var submitPixelSize = document.querySelector("#submitPixelSize");
 
     var pencilIcon = document.querySelector(".fa-pencil-alt");
-    pencilIcon.style.color = "red";
+    pencilIcon.style.backgroundColor = "gray";
     var eraserIcon = document.querySelector(".fa-eraser");
 
-    // Controls the position and the color of each pixel
     /* 
     Have to set a function creating a position to every empty pixel from x = 0 to x = 480 and y = 0 to y = 480
     arrPositionX and arrPositionY has to call the function each one
     And the arrPositionColor has to set "" value in each position
-
     So the paint() function has to change the value in the arrPositionsColor putting the color used by user in the position x and y captured by event
-    
     This array will be used to render the image in a full white background, or in the move tool and so on...
     */
+    // Controls the position and the color of each pixel
     var arrPositionsX = [];
     var arrPositionsY = [];
     var arrPositionsColor = [];
@@ -66,11 +63,11 @@ There's a bug when onmouseup outside of canvas
         }
     }
 
+    // Clear the previous grid and screen
     function clearGrid() {
-        // Clear the trevious grid and screen
         context.fillStyle = "white";
         context.fillRect(0, 0, 500, 500);
-            }
+    }
 
     // Creates the pixel
     function paint(e) {
@@ -112,17 +109,18 @@ There's a bug when onmouseup outside of canvas
 
     // Activates or deactivate the eraser
     function pencilControl() {
-        eraserIcon.style.color = "black";
-        pencilIcon.style.color = "red";
-        pencilOn = !pencilOn;
-        eraserOn = !eraserOn;
+        eraserIcon.style.backgroundColor = "white";
+        pencilIcon.style.backgroundColor = "gray";
+        pencilOn = true;
+        eraserOn = false;
         
     }
 
     function eraserControl() {
-        pencilIcon.style.color = "black";
-        eraserIcon.style.color = "red";
-        eraserOn = !eraserOn;
+        pencilIcon.style.backgroundColor = "white";
+        eraserIcon.style.backgroundColor = "gray";
+        eraserOn = true;
+        pencilOn = false;
     }
 
     function saveImage() {

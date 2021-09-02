@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: unset;
+    font-family: 'Lato', sans-serif;
+}
+#controls {
+    margin: 50px 30px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #eaeaea;
+    padding: 20px 30px 30px;
+    border-radius: 5px;
+}
+canvas {
+    border: 2px solid darkgray;
+    display: inline-block;
+    margin: 50px 120px;
+}
+#pencilColor {
+    outline: none;
+    appearance: none;
+}
+#pencilColor::-webkit-color-swatch-wrapper {
+    padding: 0; 
+}
+#eraser, #pencil, #pencilColor {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 10px 0 0;
+    border-radius: 3px;
+    border: 2px double gray;
+}
+#eraser, #pencil {
+    text-align: center;
+    padding: 8px 0 0;
+    font-size: 20px;
+    border: 2px double gray;
+}

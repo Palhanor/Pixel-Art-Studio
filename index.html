@@ -3,6 +3,7 @@
 <!-- Move: <i class="fas fa-arrows-alt"></i> -->
 <!-- Text: <i class="fas fa-font"></i> -->
 <!-- Zoom:  && <i class="fas fa-search-minus"></i>  -->
+<!-- Opacity -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,30 +11,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Pixel Art Studio</title>
 </head>
 <body>
 
     <div id="controls">
-        <label for="pencilColor">Select a color: </label>
-        <input type="color" id="pencilColor" name="pencilColor"><br><br>
-        <label for="pencil">Pencil: </label>
-        <i class="fas fa-pencil-alt" id="pencil"></i></i><br><br>
-        <label for="eraser">Eraser: </label>
-        <i class="fas fa-eraser" id="eraser"></i><br><br>
+        <h2>Control Panel</h2>
+        <input type="color" id="pencilColor" name="pencilColor">
+        <i class="fas fa-pencil-alt" id="pencil"></i></i>
+        <i class="fas fa-eraser" id="eraser"></i>
         <!-- <label for="zoom">Zoom: </label>
         <i class="fas fa-search-plus" id="zoom"></i><br><br> -->
-        <label for="resizePixel">Pixel size</label>
-        <input type="number" id="resizePixel" name="resizePixel" value="20" min="10" max="40" step="10"><br>
-        <button id="submitPixelSize">Submit</button><br><br>
+        <br><br><label for="resizePixel">Pixel size</label><br>
+        <input type="number" id="resizePixel" name="resizePixel" value="20" min="10" max="40" step="10">
+        <button id="submitPixelSize">Submit</button>
         <!-- <button id="saveImage">Save</button> -->
     </div>
 
-    <canvas width="500" height="500"></canvas>
+    <canvas width="500" height="500" id="screen"></canvas>
 
     <script src="https://kit.fontawesome.com/e47ec628f8.js" crossorigin="anonymous"></script>
-    <script src="paint.js"></script>
+    <script src="JS/paint.js"></script>
 
 </body>
 </html>
